@@ -43,6 +43,90 @@
     <!-- Map Div from Open Layers -->
     <div class="map" id="mymap"></div>
 
+    <!-- begin: start draw Modal -->
+    <div
+      class="modal fade"
+      id="startdrawModal"
+      tabindex="-1"
+      aria-labelledby="startdrawModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="startdrawModalLabel">
+              Select Draw Type
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" style="text-align: center">
+            <div class="row">
+              <div class="col-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Polygon</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">
+                      Building, Garden, Ground, etc.
+                    </h6>
+                    <p class="card-text">
+                      <i class="fa-solid fa-draw-polygon fa-2x"></i>
+                    </p>
+                    <a href="#" class="card-link">Draw Polygon</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Line</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">
+                      Road, River, Telephone Wire
+                    </h6>
+                    <p class="card-text">
+                      <i class="fa-solid fa-road fa-2x"></i>
+                    </p>
+                    <a href="#" class="card-link">Add Line</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Point</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">
+                      ATM, Pole, Tree, Bus Stop, etc.
+                    </h6>
+                    <p class="card-text">
+                      <i class="fa-solid fa-location-dot fa-2x"></i>
+                    </p>
+                    <a href="#" class="card-link">Add Point</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- end: start draw Modal -->
+
     <!-- JQuery uncompressed -->
     <script
       src="https://code.jquery.com/jquery-3.7.1.js"

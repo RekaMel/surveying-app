@@ -19,12 +19,12 @@ app.DrawingApp = function (opt_options) {
   var options = opt_options || {};
 
   var button = document.createElement("button");
-  button.innerHTML = "N";
+  button.innerHTML = '<i class="fa-solid fa-pencil"></i>';
 
   var this_ = this;
   var startStopApp = function () {
     //this_.getMap().getView().setRotation(0);
-    alert("You clicked control");
+    $("#startdrawModal").modal("show");
   };
 
   button.addEventListener("click", startStopApp, false);
