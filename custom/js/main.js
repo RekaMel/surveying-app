@@ -1,5 +1,5 @@
+//Global variables
 var draw;
-//Function to start Drawing
 
 //Custom Control
 
@@ -88,19 +88,29 @@ var map = new ol.Map({
   layers: layerArray,
 });
 
-var geometry = document.querySelectorAll("#polygon,#linestring,#point");
-geometry.forEach(startDraw, clickEvent);
+//var geometry = document.querySelectorAll("#polygon,#linestring,#point");
+//geometry.forEach(startDraw, clickEvent);
 
-function startDraw(geometry) {
-  geometry.addEventListener("click", clickEvent);
-}
+//function startDraw(geometry) {
+//geometry.addEventListener("click", clickEvent);
+//}
 
-function clickEvent(geometry) {
+//function clickEvent(geometry) {
+//draw = new ol.interaction.Draw({
+//type: geometry,
+//source: drawSource,
+//});
+//$("#startdrawModal").modal("hide");
+//map.addInteraction(draw);
+//console.log(this.id);
+//}
+
+//Function to start Drawing
+function startDraw(geomType) {
   draw = new ol.interaction.Draw({
-    type: geometry,
+    type: geomType,
     source: drawSource,
   });
   $("#startdrawModal").modal("hide");
   map.addInteraction(draw);
-  //console.log(this.id);
 }
