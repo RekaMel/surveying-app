@@ -1,5 +1,6 @@
 //Global variables
 var draw;
+var flagIsDrawingOn = false;
 
 //Custom Control
 
@@ -26,8 +27,13 @@ app.DrawingApp = function (opt_options) {
 
   var this_ = this;
   var startStopApp = function () {
-    //this_.getMap().getView().setRotation(0);
-    $("#startdrawModal").modal("show");
+    if (flagIsDrawingOn == false) {
+      //this_.getMap().getView().setRotation(0);
+      $("#startdrawModal").modal("show");
+    } else {
+      map.removeInteraction(draw);
+      flagIsDrawingOn = false;
+    }
   };
 
   button.addEventListener("click", startStopApp, false);
@@ -88,23 +94,6 @@ var map = new ol.Map({
   layers: layerArray,
 });
 
-//var geometry = document.querySelectorAll("#polygon,#linestring,#point");
-//geometry.forEach(startDraw, clickEvent);
-
-//function startDraw(geometry) {
-//geometry.addEventListener("click", clickEvent);
-//}
-
-//function clickEvent(geometry) {
-//draw = new ol.interaction.Draw({
-//type: geometry,
-//source: drawSource,
-//});
-//$("#startdrawModal").modal("hide");
-//map.addInteraction(draw);
-//console.log(this.id);
-//}
-
 //Function to start Drawing
 function startDraw(geomType) {
   draw = new ol.interaction.Draw({
@@ -113,4 +102,5 @@ function startDraw(geomType) {
   });
   $("#startdrawModal").modal("hide");
   map.addInteraction(draw);
+  flagIsDrawingOn = true;
 }
