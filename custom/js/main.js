@@ -23,6 +23,7 @@ app.DrawingApp = function (opt_options) {
   var options = opt_options || {};
 
   var button = document.createElement("button");
+  button.id = "drawbtn";
   button.innerHTML = '<i class="fa-solid fa-pencil"></i>';
 
   var this_ = this;
@@ -30,9 +31,13 @@ app.DrawingApp = function (opt_options) {
     if (flagIsDrawingOn == false) {
       //this_.getMap().getView().setRotation(0);
       $("#startdrawModal").modal("show");
+      document.getElementById("drawbtn").innerHTML =
+        '<i class="fa-regular fa-circle-stop"></i>';
     } else {
       map.removeInteraction(draw);
       flagIsDrawingOn = false;
+      document.getElementById("drawbtn").innerHTML =
+        '<i class="fa-solid fa-pencil"></i>';
     }
   };
 
