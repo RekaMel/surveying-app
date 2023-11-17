@@ -1,3 +1,6 @@
+var draw;
+//Function to start Drawing
+
 //Custom Control
 
 /**
@@ -59,8 +62,16 @@ var baseLayer = new ol.layer.Tile({
   }),
 });
 
+//Draw vector layer
+// 1. Define source
+var drawSource = new ol.source.Vector();
+// 2. Define layer
+var drawLayer = new ol.layer.Vector({
+  source: drawSource,
+});
+
 // Layer Array
-var layerArray = [baseLayer];
+var layerArray = [baseLayer, drawLayer];
 
 //Map
 var map = new ol.Map({
@@ -76,3 +87,20 @@ var map = new ol.Map({
   view: myview,
   layers: layerArray,
 });
+
+var geometry = document.querySelectorAll("#polygon,#linestring,#point");
+geometry.forEach(startDraw, clickEvent);
+
+function startDraw(geometry) {
+  geometry.addEventListener("click", clickEvent);
+}
+
+function clickEvent(geometry) {
+  draw = new ol.interaction.Draw({
+    type: geometry,
+    source: drawSource,
+  });
+  $("#startdrawModal").modal("hide");
+  map.addInteraction(draw);
+  //console.log(this.id);
+}
